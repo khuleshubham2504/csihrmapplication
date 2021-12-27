@@ -33,5 +33,15 @@ public class EmployeeDaoImpl implements EmployeeDao{
         return status;
     }
 
+    @Override
+    public Employee getDataByEmployeeEmailId(String employeeEmailId) {
+        return employeeRepository.findByEmployeeEmailId(employeeEmailId);
+    }
+
+    @Override
+    public List<Employee> getAllData() {
+        return employeeRepository.findAll();
+    }
+
 
 }

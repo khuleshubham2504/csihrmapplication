@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 
@@ -28,5 +30,17 @@ public class EmployeeController {
         return ResponseEntity.ok("<<<<<<<<<<<<<<--SIGN_IN SUCCESSFULL-->>>>>>>>>>>>>>");
     }
 
+    @GetMapping("/getdatabyemailid/{employeeEmailId}")
+
+    public Employee getDataByEmployeeEmailId(@PathVariable String employeeEmailId)
+    {
+        return employeeService.getDataByEmployeeEmailId(employeeEmailId);
+    }
+
+    @GetMapping("/getalldata")
+    public List<Employee> getAllData()
+    {
+        return employeeService.getAllData();
+    }
 
 }
