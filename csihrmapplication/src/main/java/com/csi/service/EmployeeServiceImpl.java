@@ -33,4 +33,16 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
 
+
+    @Override
+    public void deleteEmployeeData(long employeeId) {
+        employeeDao.deleteEmployeeData(employeeId);
+
+    }
+
+
+
+    public void deleteEmployeeAllData() {
+        employeeDao.deleteEmployeeAllData();
+    }
 }

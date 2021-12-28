@@ -10,4 +10,10 @@ public boolean signIn(String employeeEmailId, String employeePassword);
 public Employee getDataByEmployeeEmailId(String employeeEmailId);
 public List<Employee> getAllData();
 
+
+public void deleteEmployeeData(long employeeId);
+public void deleteEmployeeAllData();
+
+
+
 }

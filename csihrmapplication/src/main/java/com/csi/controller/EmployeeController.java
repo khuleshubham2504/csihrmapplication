@@ -43,4 +43,16 @@ public class EmployeeController {
         return employeeService.getAllData();
     }
 
+
+    @DeleteMapping("/{employeeId}")
+    public String deleteEmployeeData(@PathVariable int employeeId){
+        employeeService.deleteEmployeeData(employeeId);
+        return "<<<<<<<<DeleteEmployeeData Successfully>>>>>>>>>>>>>>";
+    }
+
+    @DeleteMapping("/deleteemployeealldata")
+    public  String deleteEmployeeAllData(){
+        employeeService.deleteEmployeeAllData();
+        return "<<<<<<<<<<DeleteAllData Successfully>>>>>>>>>>>";
+    }
 }
