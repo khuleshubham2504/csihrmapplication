@@ -4,10 +4,12 @@ import com.csi.service.EmployeeServiceImpl;
 import com.csi.model.Employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -26,33 +28,25 @@ public class EmployeeController {
     @GetMapping("/signin/{employeeEmailId}/{employeePassword}")
     public ResponseEntity<String> signIn(@PathVariable String employeeEmailId, @PathVariable String employeePassword) {
 
-        employeeService.signIn(employeeEmailId,employeePassword);
+        employeeService.signIn(employeeEmailId, employeePassword);
         return ResponseEntity.ok("<<<<<<<<<<<<<<--SIGN_IN SUCCESSFULL-->>>>>>>>>>>>>>");
     }
 
     @GetMapping("/getdatabyemailid/{employeeEmailId}")
 
-    public Employee getDataByEmployeeEmailId(@PathVariable String employeeEmailId)
-    {
+    public Employee getDataByEmployeeEmailId(@PathVariable String employeeEmailId) {
         return employeeService.getDataByEmployeeEmailId(employeeEmailId);
     }
 
     @GetMapping("/getalldata")
-    public List<Employee> getAllData()
-    {
+    public List<Employee> getAllData() {
         return employeeService.getAllData();
     }
 
-
-    @DeleteMapping("/{employeeId}")
-    public String deleteEmployeeData(@PathVariable int employeeId){
-        employeeService.deleteEmployeeData(employeeId);
-        return "<<<<<<<<DeleteEmployeeData Successfully>>>>>>>>>>>>>>";
+    @GetMapping("/getdatabydob/{employeeDOB}")
+    public Employee getDataByEmployeeDOB(@PathVariable @DateTimeFormat (pattern = "dd-MM-yyyy") Date employeeDOB) {
+        return employeeService.getDataByEmployeeDOB(employeeDOB);
     }
 
-    @DeleteMapping("/deleteemployeealldata")
-    public  String deleteEmployeeAllData(){
-        employeeService.deleteEmployeeAllData();
-        return "<<<<<<<<<<DeleteAllData Successfully>>>>>>>>>>>";
-    }
+
 }
