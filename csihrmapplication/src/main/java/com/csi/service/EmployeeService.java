@@ -2,6 +2,7 @@ package com.csi.service;
 
 import com.csi.model.Employee;
 
+import java.util.Date;
 import java.util.List;
 
 public interface EmployeeService {
@@ -9,4 +10,6 @@ public interface EmployeeService {
     public boolean signIn(String employeeEmailId, String employeePassword);
     public Employee getDataByEmployeeEmailId(String employeeEmailId);
     public List<Employee> getAllData();
+    public Employee getDataByEmployeeDOB(Date employeeDOB);
+
 }
