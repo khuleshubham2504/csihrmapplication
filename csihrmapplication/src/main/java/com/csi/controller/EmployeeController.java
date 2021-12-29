@@ -44,15 +44,35 @@ public class EmployeeController {
     }
 
     @GetMapping("/getdatabydob/{employeeDOB}")
-    public Employee getDataByEmployeeDOB(@PathVariable @DateTimeFormat (pattern = "dd-MM-yyyy") Date employeeDOB) {
+    public Employee getDataByEmployeeDOB(@PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date employeeDOB) {
         return employeeService.getDataByEmployeeDOB(employeeDOB);
     }
 
+<<<<<<< HEAD
     @PostMapping("/getdatabyanyinput")
     public List<Employee> getDataByAnyInput(@RequestBody Employee employee)
     {
         return employeeService.getDataByAnyInput(employee);
     }
 
+=======
+    @DeleteMapping("/deletedata/{employeeId}")
+    public String deleteEmployeeData(@PathVariable long employeeId) {
+        employeeService.deleteEmployeeData(employeeId);
+        return "delete Data done";
+    }
 
+    @DeleteMapping("/deletealldata")
+    public String deleteEmployeeData() {
+        employeeService.deleteEmployeeAllData();
+        return "delete Data done";
+
+>>>>>>> 9f9484566adb4691c8265a9d0972ed3cfc33c5ba
+
+    }
+    @PutMapping("/updatedata/{employeeId}")
+    public Employee updeateEmployeeData(@PathVariable long employeeId, @RequestBody Employee employee){
+       return employeeService.updateEmployeeData(employee);
+
+    }
 }

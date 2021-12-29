@@ -50,6 +50,15 @@ public class EmployeeDaoImpl implements EmployeeDao {
         return employeeRepository.findByEmployeeDOB(employeeDOB);
     }
 
+    @Override
+    public Employee updateEmployeeData(Employee employee) {
+
+
+        return  employeeRepository.save(employee);
+
+
+
+    }
 
 
     @Override
