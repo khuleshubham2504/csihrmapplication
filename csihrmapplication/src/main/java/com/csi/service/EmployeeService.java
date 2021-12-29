@@ -11,5 +11,7 @@ public interface EmployeeService {
     public Employee getDataByEmployeeEmailId(String employeeEmailId);
     public List<Employee> getAllData();
     public Employee getDataByEmployeeDOB(Date employeeDOB);
+    public void deleteEmployeeData(long employeeId);
+    public List<Employee> getDataByAnyInput(Employee employee);
 
 }

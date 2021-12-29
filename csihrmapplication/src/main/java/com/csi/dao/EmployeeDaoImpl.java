@@ -5,6 +5,7 @@ import com.csi.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -62,7 +63,26 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     }
 
+    @Override
+    public List<Employee> getDataByAnyInput(Employee employee) {
 
+        List<Employee> employeeList=new ArrayList<>();
+        List<Employee> empList=employeeRepository.findAll();
+
+        for(Employee e:empList){
+            if(e.getEmployeeId()==employee.getEmployeeId() || e.getEmployeeCode()== employee.getEmployeeCode() ||
+               e.getEmployeeName().equals(employee.getEmployeeName()) || e.getEmployeeContactNumber()==employee.getEmployeeContactNumber() ||
+               e.getEmployeeCurrentAddress().equals(employee.getEmployeeCurrentAddress()) ||
+               e.getEmployeeUID()==employee.getEmployeeUID() || e.getEmployeePanCardNumber().equals(employee.getEmployeePanCardNumber())||
+               e.getEmployeeDOB()==employee.getEmployeeDOB() || e.getEmployeeEducationPassoutYear()==employee.getEmployeeEducationPassoutYear() ||
+               e.getEmployeeEmailId().equals(employee.getEmployeeEmailId()) || e.getEmployeeJoingDate()==employee.getEmployeeJoingDate() ||
+               e.getEmployeePostalAddress().equals(employee.getEmployeePostalAddress())){
+                employeeList.add(e);
+
+            }
+        }
+        return employeeList;
+    }
 
 
 }

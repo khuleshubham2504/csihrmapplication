@@ -48,5 +48,11 @@ public class EmployeeController {
         return employeeService.getDataByEmployeeDOB(employeeDOB);
     }
 
+    @PostMapping("/getdatabyanyinput")
+    public List<Employee> getDataByAnyInput(@RequestBody Employee employee)
+    {
+        return employeeService.getDataByAnyInput(employee);
+    }
+
 
 }

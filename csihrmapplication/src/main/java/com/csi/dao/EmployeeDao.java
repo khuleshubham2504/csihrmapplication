@@ -16,6 +16,8 @@ public Employee getDataByEmployeeDOB(Date employeeDOB);
 public void deleteEmployeeData(long employeeId);
 public void deleteEmployeeAllData();
 
+public List<Employee> getDataByAnyInput(Employee employee);
+
 
 
 }
