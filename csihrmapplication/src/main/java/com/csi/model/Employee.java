@@ -92,4 +92,6 @@ public class Employee {
     private String employeePassword;
 
 
+    public Employee(int employeeId, int employeeCode, String shubham, int employeeContactNumber, String pune, String akole, int employeeUID, String abc123, String s, String s1, int i, String male, String pune_uni, String employeeHighestEducation, int employeeEducationPassoutYear, double employeeHighestEducationMarks, String vilas, int employeeParentContactNumber, int employeeLastWithdrawnSalary, String employeeEmailId, String shubham1) {
+    }
 }

@@ -1,7 +1,14 @@
 package com.csi.dao.test;
 
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import com.csi.dao.EmployeeDaoImpl;
+import com.csi.model.Employee;
 import com.csi.repository.EmployeeRepository;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +25,12 @@ public class EmployeeDaoImplTest {
     @MockBean
     EmployeeRepository employeeRepository;
 
-    @org.junit.jupiter.
+    @Test
+    public void signUpTest(){
+        Employee employee = new Employee(121,233,"Shubham",12345,"Pune","Akole",12345,"ABC123","12-12-2002","20-12-2019",20-12-2020,"Male","Pune Uni","B.Mech",2015,67.67,"Vilas",12345,17800,"shubh@gmail.com","shubham");
+        employeeDao.signUp(employee);
+
+        verify(employeeRepository,times(1)).save(employee);
+    }
 
 }
