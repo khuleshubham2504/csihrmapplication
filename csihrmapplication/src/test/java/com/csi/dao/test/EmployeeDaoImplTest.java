@@ -16,6 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -31,7 +32,11 @@ public class EmployeeDaoImplTest {
 
     @Test
     public void signUpTest(){
-        Employee employee = new Employee(121,233,"Shubham",12345,"Pune","Akole",12345,"ABC123","12-12-2002","20-12-2019",20-12-2020,"Male","Pune Uni","B.Mech",2015,67.67,"Vilas",12345,17800,"shubh@gmail.com","shubham");
+        Employee employee = new Employee(121,233,"Shubham",12345,
+                "Pune","Akole",12345,"ABC123","12-12-2002","20-12-2019",20-12-2020,
+                "Male","Pune Uni","B.Mech",2015,
+                67.67,"Vilas",12345,17800,
+                "shubh@gmail.com","shubham");
         employeeDao.signUp(employee);
 
         verify(employeeRepository,times(1)).save(employee);
@@ -46,5 +51,17 @@ public class EmployeeDaoImplTest {
                 17800,"shubh@gmail.com","shubham")).collect(Collectors.toList()));
 
         Assert.assertEquals(1,1);
+    }
+    @Test
+    public void getAllDataTest(){
+
+        when(employeeRepository.findAll()).thenReturn(Stream.of(new Employee(121,233,"Shubham",
+                12345,"Pune","Akole",12345,"ABC123","12-12-2002",
+                "20-12-2019",20-12-2020,"Male","Pune Uni","B.Mech",
+                2015,67.67,"Vilas",12345,
+                17800,"shubh@gmail.com","shubham")).collect(Collectors.toList()));
+
+            Assert.assertEquals(1,1);
+
     }
 }
