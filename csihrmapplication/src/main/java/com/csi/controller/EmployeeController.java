@@ -59,5 +59,11 @@ public class EmployeeController {
         employeeService.deleteEmployeeAllData();
         return "delete Data done";
 
+
+    }
+    @PutMapping("/updatedata/{employeeId}")
+    public Employee updeateEmployeeData(@PathVariable long employeeId, @RequestBody Employee employee){
+       return employeeService.updateEmployeeData(employee);
+
     }
 }

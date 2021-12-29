@@ -1,4 +1,8 @@
 package com.csi.exception;
 
-public class EmployeeRecordNotFoundException {
+public class EmployeeRecordNotFoundException extends  Exception {
+
+    /*public EmployeeRecordNotFoundException (String msg){
+        super(msg);
+    }*/
 }

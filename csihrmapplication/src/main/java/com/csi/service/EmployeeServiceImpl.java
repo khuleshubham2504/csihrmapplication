@@ -41,6 +41,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    public Employee updateEmployeeData(Employee employee) {
+       return  employeeDao.updateEmployeeData(employee);
+    }
+
+    @Override
     public void deleteEmployeeData(long employeeId) {
         employeeDao.deleteEmployeeData(employeeId);
     }

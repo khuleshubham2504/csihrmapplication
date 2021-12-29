@@ -15,5 +15,5 @@ public interface EmployeeRepository extends JpaRepository<Employee,Long> {
 
    public Employee findByEmployeeDOB(Date employeeDOB);
 
-   public Employee findByAnyInput(Employee employee);
+   //public Employee findByAnyInput(Employee employee);
 }
