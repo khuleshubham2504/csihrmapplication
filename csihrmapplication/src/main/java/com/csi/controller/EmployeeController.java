@@ -1,5 +1,7 @@
 package com.csi.controller;
 
+import com.csi.exception.RecordNotFoundException;
+import com.csi.repository.EmployeeRepository;
 import com.csi.service.EmployeeServiceImpl;
 import com.csi.model.Employee;
 
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -18,6 +21,9 @@ import java.util.List;
 public class EmployeeController {
     @Autowired
     EmployeeServiceImpl employeeService;
+
+    @Autowired
+    EmployeeRepository employeeRepository;
 
     @PostMapping("/signup")
     public ResponseEntity<Employee> signUp(@RequestBody Employee employee) {
@@ -34,7 +40,8 @@ public class EmployeeController {
 
     @GetMapping("/getdatabyemailid/{employeeEmailId}")
 
-    public Employee getDataByEmployeeEmailId(@PathVariable String employeeEmailId) {
+    public Employee getDataByEmployeeEmailId(@PathVariable String employeeEmailId){
+
         return employeeService.getDataByEmployeeEmailId(employeeEmailId);
     }
 
@@ -48,14 +55,19 @@ public class EmployeeController {
         return employeeService.getDataByEmployeeDOB(employeeDOB);
     }
 
-<<<<<<< HEAD
+    @GetMapping("/getemployeedata/{employeeId}")
+    public Optional<Employee> getEmployeeDataById(@PathVariable Long employeeId){
+        return employeeService.getEmployeeDataById(employeeId);
+    }
+
+
     @PostMapping("/getdatabyanyinput")
     public List<Employee> getDataByAnyInput(@RequestBody Employee employee)
     {
         return employeeService.getDataByAnyInput(employee);
     }
 
-=======
+
     @DeleteMapping("/deletedata/{employeeId}")
     public String deleteEmployeeData(@PathVariable long employeeId) {
         employeeService.deleteEmployeeData(employeeId);
@@ -67,11 +79,14 @@ public class EmployeeController {
         employeeService.deleteEmployeeAllData();
         return "delete Data done";
 
->>>>>>> 9f9484566adb4691c8265a9d0972ed3cfc33c5ba
+
 
     }
     @PutMapping("/updatedata/{employeeId}")
-    public Employee updeateEmployeeData(@PathVariable long employeeId, @RequestBody Employee employee){
+    public Employee updeateEmployeeData(@PathVariable long employeeId, @RequestBody Employee employee) throws RecordNotFoundException {
+
+        Employee emp=employeeRepository.findById(employeeId).orElseThrow(()-> new RecordNotFoundException("Employee Id does not available"));
+
        return employeeService.updateEmployeeData(employee);
 
     }

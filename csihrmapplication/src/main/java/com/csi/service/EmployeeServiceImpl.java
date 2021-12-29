@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -40,25 +41,23 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeDao.getDataByEmployeeDOB(employeeDOB);
     }
 
-<<<<<<< HEAD
-=======
     @Override
     public Employee updateEmployeeData(Employee employee) {
        return  employeeDao.updateEmployeeData(employee);
     }
 
->>>>>>> 9f9484566adb4691c8265a9d0972ed3cfc33c5ba
     @Override
     public void deleteEmployeeData(long employeeId) {
         employeeDao.deleteEmployeeData(employeeId);
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 9f9484566adb4691c8265a9d0972ed3cfc33c5ba
     public void deleteEmployeeAllData() {
         employeeDao.deleteEmployeeAllData();
+    }
+
+    @Override
+    public Optional<Employee> getEmployeeDataById(Long employeeId) {
+        return employeeDao.getEmployeeDataById(employeeId);
     }
 
 
