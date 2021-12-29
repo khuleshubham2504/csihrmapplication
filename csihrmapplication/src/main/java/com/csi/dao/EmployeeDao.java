@@ -3,6 +3,7 @@ import com.csi.model.Employee;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public interface EmployeeDao {
 
@@ -19,5 +20,5 @@ public void deleteEmployeeAllData();
 public List<Employee> getDataByAnyInput(Employee employee);
 
 
-
+    Optional<Employee> getEmployeeDataById(Long employeeId);
 }

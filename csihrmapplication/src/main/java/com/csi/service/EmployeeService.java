@@ -4,6 +4,7 @@ import com.csi.model.Employee;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public interface EmployeeService {
     public Employee signUp(Employee employee);
@@ -11,15 +12,13 @@ public interface EmployeeService {
     public Employee getDataByEmployeeEmailId(String employeeEmailId);
     public List<Employee> getAllData();
     public Employee getDataByEmployeeDOB(Date employeeDOB);
-<<<<<<< HEAD
     public void deleteEmployeeData(long employeeId);
     public List<Employee> getDataByAnyInput(Employee employee);
-=======
     public Employee updateEmployeeData(Employee employee);
->>>>>>> 9f9484566adb4691c8265a9d0972ed3cfc33c5ba
 
-    public void deleteEmployeeData(long employeeId);
 
 
 public void deleteEmployeeAllData();
+
+    Optional<Employee> getEmployeeDataById(Long employeeId);
 }

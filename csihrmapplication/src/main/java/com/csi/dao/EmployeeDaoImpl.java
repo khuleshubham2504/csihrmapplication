@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class EmployeeDaoImpl implements EmployeeDao {
@@ -91,6 +92,11 @@ public class EmployeeDaoImpl implements EmployeeDao {
             }
         }
         return employeeList;
+    }
+
+    @Override
+    public Optional<Employee> getEmployeeDataById(Long employeeId) {
+        return employeeRepository.findById(employeeId);
     }
 
 
