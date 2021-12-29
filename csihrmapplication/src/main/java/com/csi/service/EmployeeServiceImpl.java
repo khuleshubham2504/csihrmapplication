@@ -1,4 +1,5 @@
 package com.csi.service;
+
 import com.csi.dao.EmployeeDaoImpl;
 
 import com.csi.model.Employee;
@@ -9,10 +10,11 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class EmployeeServiceImpl implements EmployeeService{
+public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     EmployeeDaoImpl employeeDao;
+
     @Override
     public Employee signUp(Employee employee) {
         return employeeDao.signUp(employee);
@@ -20,7 +22,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public boolean signIn(String employeeEmailId, String employeePassword) {
-        return employeeDao.signIn(employeeEmailId,employeePassword);
+        return employeeDao.signIn(employeeEmailId, employeePassword);
     }
 
     @Override
@@ -38,14 +40,10 @@ public class EmployeeServiceImpl implements EmployeeService{
         return employeeDao.getDataByEmployeeDOB(employeeDOB);
     }
 
-
-
     @Override
     public void deleteEmployeeData(long employeeId) {
         employeeDao.deleteEmployeeData(employeeId);
-
     }
-
 
 
     public void deleteEmployeeAllData() {

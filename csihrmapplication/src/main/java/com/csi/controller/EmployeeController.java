@@ -44,9 +44,20 @@ public class EmployeeController {
     }
 
     @GetMapping("/getdatabydob/{employeeDOB}")
-    public Employee getDataByEmployeeDOB(@PathVariable @DateTimeFormat (pattern = "dd-MM-yyyy") Date employeeDOB) {
+    public Employee getDataByEmployeeDOB(@PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date employeeDOB) {
         return employeeService.getDataByEmployeeDOB(employeeDOB);
     }
 
+    @DeleteMapping("/deletedata/{employeeId}")
+    public String deleteEmployeeData(@PathVariable long employeeId) {
+        employeeService.deleteEmployeeData(employeeId);
+        return "delete Data done";
+    }
 
+    @DeleteMapping("/deletealldata")
+    public String deleteEmployeeData() {
+        employeeService.deleteEmployeeAllData();
+        return "delete Data done";
+
+    }
 }
